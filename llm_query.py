@@ -45,6 +45,15 @@ gender
 city_tier
 shopping_preference
 
+If the query compares two categorical columns 
+(e.g., gender and shopping_preference),
+then use COUNT(*) and GROUP BY both columns.
+
+Example:
+SELECT gender, shopping_preference, COUNT(*) as total
+FROM customers
+GROUP BY gender, shopping_preference;
+
 Return ONLY JSON like this:
 
 {{
