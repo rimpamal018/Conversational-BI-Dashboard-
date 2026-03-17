@@ -39,7 +39,7 @@ st.set_page_config(
 
 
 # Title
-st.title("📊 Conversational BI Dashboard")
+st.title("Conversational BI Dashboard")
 
 st.write("Ask your business question and AI will generate SQL and chart automatically.")
 
