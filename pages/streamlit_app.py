@@ -142,15 +142,25 @@ if st.button("Generate Chart"):
 
             st.subheader("Pie Chart")
 
+            # Clean columns
+            df.columns = [col.strip().lower() for col in df.columns]
+
+            # Keep only 2 columns
+            df = df.iloc[:, :2]
+
+            # Convert values to numeric
+            df[df.columns[1]] = pd.to_numeric(df[df.columns[1]], errors="coerce")
+
             fig = px.pie(
                 df,
-                names=columns[0],
-                values=columns[1]
+                names=df.columns[0],
+                values=df.columns[1]
             )
 
 
+
         # ---------------- BAR (DEFAULT) ----------------
-        else:
+       else:
 
             if len(columns) < 2:
                 st.error("Bar chart requires category + value.")
@@ -158,11 +168,22 @@ if st.button("Generate Chart"):
 
             st.subheader("Bar Chart")
 
-            fig = px.bar(
-                df,
-                x=columns[0],
-                y=columns[1]
-            )
+            if len(columns) == 3:
+
+                fig = px.bar(
+                    df,
+                    x=columns[0],
+                    y=[columns[1], columns[2]],
+                    barmode='group'
+                )
+
+            else:
+
+                fig = px.bar(
+                    df,
+                    x=columns[0],
+                    y=columns[1]
+                )
 
 
         # Display chart
