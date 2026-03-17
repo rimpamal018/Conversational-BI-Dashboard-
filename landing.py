@@ -117,7 +117,7 @@ st.markdown("""
 <div class="navbar">
 
 <div class="logo">
-📊 Conversational BI
+Conversational BI
 </div>
 
 <div class="nav-links">
@@ -154,7 +154,7 @@ st.markdown('<div class="trybutton">', unsafe_allow_html=True)
 left, center, right = st.columns([3,1,3])
 
 with center:
-    if st.button("🚀 Try It Now"):
+    if st.button("Try It Now"):
         st.markdown(
             '<meta http-equiv="refresh" content="0; url=http://localhost:8501/streamlit_app">',
             unsafe_allow_html=True
